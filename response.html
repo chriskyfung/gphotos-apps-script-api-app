@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_self">
+    <script>
+    var now = new Date();
+    var state = {
+    'timestamp': now.getTime()
+    };
+    var params = {
+    'created': "<?= name ?>"
+    };
+    google.script.history.push(state, params, "response1");
+    </script>
+  </head>
+  <body>
+    Created Shared Album: <a href=<?!= url ?>><?= name ?></a>
+  </body>
+</html>

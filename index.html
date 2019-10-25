@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style type="text/css">
+        input:required:invalid, input:focus:invalid {
+             -moz-box-shadow: none;
+             border: 1px solid red;
+        }
+    
+    </style>
+    <script>
+    var now = new Date();
+    var state = {
+    'timestamp': now.getTime()
+    };
+    var params = {
+    'options': "none"
+    };
+    google.script.history.push(state, params, "anchor1");
+    </script>
+  </head>
+  <body>
+    <form action="<?= execUrl ?>">
+       <fieldset>
+          <legend>Create a shared new album</legend>
+          Name:<br>
+          <input type="text" name="name" value="" size="60">
+          <br><br>
+          <input type="hidden" name="formId" value="cna">
+          <input type="submit" value="Create">
+       </fieldset>
+    </form>
+    <br><br>
+    <form action="<?= execUrl ?>">
+        <fieldset>
+          <legend>Add Images to an album (Work in Progress)</legend>
+          Select a date:
+          <input type="date" name="date" required>
+          <input type="hidden" name="formId" value="aia">
+          <input type="submit" value="Search">
+        </fieldset>
+    </form>
+    <br><br>
+    <form action="<?= execUrl ?>">
+        <fieldset>
+          <legend>Unshare an album</legend>
+          Select Action:<br>
+          <input type="radio" name="action" value="share"  disabled> Share <input type="radio" name="action" value="unshare" checked> Unshare<br>
+          Album URL:<br>
+          <input type="url" name="url" placeholder="https://photos.app.goo.gl/..." pattern="^https://photos.app.goo.gl/[A-Za-z0-9]{10+}" title="Invalid input" size="60">
+          <input type="hidden" name="formId" value="usa">
+          <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+  </body>
+</html>
+
+
